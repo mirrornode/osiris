@@ -1,0 +1,25 @@
+{
+  "nodes": {
+    "lucian": "online",
+    "claude": "online",
+    "theia": "online",
+    "merlin": "partial",
+    "grok": "online",
+    "perplexity": "online",
+    "tesla": "booting",
+    "bridge": "priority"
+  },
+  "assets": {
+    "osiris": "deployed",
+    "mirrornode_core": "skeleton",
+    "theia_core": "linked",
+    "tesla_law9": "in-progress"
+  },
+  "checklist": {
+    "Bring Bridge Node online": false,
+    "Define HUD actions": false,
+    "Map codes to repos": false,
+    "Confirm GitHub↔Vercel link": false,
+    "Create Ops doc": false
+  }
+}
