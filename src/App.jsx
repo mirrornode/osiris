@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import hudState from './data/mirrornode_state.json';
 
-const nodes = state.nodes;
-const assets = state.assets;
-const checklist = state.checklist;
+const NODES = hudState.nodes;;
+const ASSETS = hudState.assets;
+const CHECKLIST = hudState.checklist;
 
 import OSIRISInterface from './OSIRISInterface.jsx';
 import OSIRISEntrainment from './OSIRISEntrainment.jsx';
