@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import import state from './data/mirrornode_state.json';
+import hudState from './data/mirrornode_state.json';
 
 const nodes = state.nodes;
 const assets = state.assets;
