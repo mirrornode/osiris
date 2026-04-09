@@ -8,9 +8,17 @@ const CHECKLIST = hudState.checklist;
 import OSIRISInterface from './OSIRISInterface.jsx';
 import OSIRISEntrainment from './OSIRISEntrainment.jsx';
 import OsirisHUD from './OsirisHUD.jsx';
+import OsirisAudit from './OsirisAudit.jsx';
 
 function App() {
   const [activeTab, setActiveTab] = useState('hud');
+
+  const tabs = [
+    { id: 'hud', label: 'HUD' },
+    { id: 'entrainment', label: 'Entrainment' },
+    { id: 'interface', label: 'Interface' },
+    { id: 'audit', label: 'Audit' },
+  ];
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'black', color: 'white' }}>
@@ -32,7 +40,7 @@ function App() {
             marginTop: '0.4rem',
           }}
         >
-          Operator console for MIRRORNODE · HUD · Entrainment · Interface
+          Operator console for MIRRORNODE · HUD · Entrainment · Interface · Audit
         </div>
 
         <div
@@ -41,20 +49,15 @@ function App() {
             display: 'flex',
             justifyContent: 'center',
             gap: '0.75rem',
+            flexWrap: 'wrap',
           }}
         >
-          {['hud', 'entrainment', 'interface'].map((tab) => {
-            const label =
-              tab === 'hud'
-                ? 'HUD'
-                : tab === 'entrainment'
-                ? 'Entrainment'
-                : 'Interface';
-            const isActive = activeTab === tab;
+          {tabs.map(({ id, label }) => {
+            const isActive = activeTab === id;
             return (
               <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
+                key={id}
+                onClick={() => setActiveTab(id)}
                 style={{
                   padding: '0.5rem 1.3rem',
                   borderRadius: '999px',
@@ -62,7 +65,9 @@ function App() {
                     ? '1px solid rgba(250,250,250,0.9)'
                     : '1px solid rgba(148,163,184,0.7)',
                   background: isActive
-                    ? 'linear-gradient(135deg, #f97316, #a855f7)'
+                    ? id === 'audit'
+                      ? 'linear-gradient(135deg, #22c55e, #0ea5e9)'
+                      : 'linear-gradient(135deg, #f97316, #a855f7)'
                     : 'transparent',
                   color: isActive ? 'white' : '#e5e7eb',
                   fontSize: '0.85rem',
@@ -83,6 +88,7 @@ function App() {
         {activeTab === 'hud' && <OsirisHUD />}
         {activeTab === 'entrainment' && <OSIRISEntrainment />}
         {activeTab === 'interface' && <OSIRISInterface />}
+        {activeTab === 'audit' && <OsirisAudit />}
       </main>
     </div>
   );
